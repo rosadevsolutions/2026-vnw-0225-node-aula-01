@@ -12,7 +12,7 @@ const app = express()
 const port = 3000
 
 
-//app.get - Define uma rota http do tipo get
+//app.get - Método que registra uma rota http do tipo get
 //'/' - rota raiz (home do servidor)
 //(req,res) => {} - Função callback executada ao acessar a rota
 //req - request - requisição - Recebe dados do server
@@ -21,4 +21,14 @@ app.get('/', (req,res) => {
   //res.send() - Envia a resposta ao navegador
   // Será vista ao acessar http://localhost:portaconfigurada
   res.send("Olá Mundo!")
+})
+
+//app.listen() - Método de iniciliza o servidor HTTP pra escutar a porta definida
+//Sem esse método o servidor não fica ativo e não aceita conexões.
+//port - porta que o servidor irá escutar no caso 3000
+//Assim o servidor ficará acessível em http://localhost:3000
+//() => { console.log(...) } - Função callback executada quando o servidor iniciar com sucesso
+app.listen(port, () => {
+  //console.log() - Exibe uma mensagem no terminal
+  console.log(`Servidor rodando em http://localhost:${port}`)
 })
